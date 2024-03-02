@@ -49,7 +49,8 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }} 
           remote_user: ${{ secrets.SERVER_USER }}  
           host: ${{ secrets.SERVER_HOST }}  
           remote_path: "/root/cicd-demo-main"
