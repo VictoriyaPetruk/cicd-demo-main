@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v2 
 
       - name: Deploy to server
-        uses: easingthemes/deploy-ssh-action@v3
+        uses: appleboy/ssh-action@master
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
           remote_user: ${{ secrets.SERVER_USER }}  
