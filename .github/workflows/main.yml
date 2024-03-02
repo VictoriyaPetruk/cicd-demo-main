@@ -40,3 +40,16 @@ jobs:
         run: |
           pip install pytest
           pytest test.py
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 
+
+      - name: Deploy to server
+        uses: easingthemes/deploy-ssh-action@v3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          remote_user: ${{ secrets.SERVER_USER }}  
+          host: ${{ secrets.SERVER_HOST }}  
+          remote_path: "/root/cicd-demo-main"
